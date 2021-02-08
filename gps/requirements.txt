@@ -1,0 +1,5 @@
+Adafruit-BBIO==1.2.0
+pkg-resources==0.0.0
+pynmea2==1.15.0
+pyserial==3.5
+sparkfun-ublox-gps==1.1.3
