@@ -18,11 +18,13 @@ async def connect_and_keep_alive():
                 res = await asyncio.wait_for(websocket.recv(), timeout)
                 if res == "shutdown":
                     break
+                # TODO: manage different responses
+                else:
+                    helloworld.control(res)
                 print(res)
             except:
                 # Send request to ws server here...
                 await websocket.send("path")
-                helloworld.control("up")
 
 async def main():
     websocket_task = asyncio.create_task(connect_and_keep_alive())
