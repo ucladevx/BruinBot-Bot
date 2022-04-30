@@ -24,4 +24,11 @@ async def connect_and_keep_alive():
                 await websocket.send("path")
                 helloworld.control("up")
 
-asyncio.get_event_loop().run_until_complete(connect_and_keep_alive())
+async def main():
+    websocket_task = asyncio.create_task(connect_and_keep_alive())
+    bot_task = asyncio.create_task(helloworld.loop())
+
+    await websocket_task
+    await bot_task
+
+asyncio.run(main())
