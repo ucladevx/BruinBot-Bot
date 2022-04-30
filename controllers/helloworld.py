@@ -8,10 +8,12 @@ blue = LED(13) #right
 state = "off"
 
 def control(msg):
+    global state
 	state = msg
 
 async def loop():
     while True:
+        await asyncio.sleep(1)
         print(state)
         if (state == "up"):
             green.off()
@@ -42,7 +44,3 @@ async def loop():
             break
         else:
             print("not a state")
-
-asyncio.get_event_loop().run_until_complete(loop())
-
-   
