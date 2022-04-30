@@ -5,7 +5,7 @@ red = LED(26) #up
 green = LED(6) #down
 yellow = LED(19) #left
 blue = LED(13) #right
-state = "init"
+state = "off"
 
 def control(msg):
 	state = msg
