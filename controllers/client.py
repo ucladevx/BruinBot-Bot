@@ -19,12 +19,12 @@ async def connect_and_keep_alive():
                 if res == "shutdown":
                     break
                 # TODO: manage different responses
-                else:
+                if res != "Pinging from server...":
                     helloworld.control(res)
                 print(res)
             except:
                 # Send request to ws server here...
-                await websocket.send("path")
+                await websocket.send("ping")
 
 async def main():
     websocket_task = asyncio.create_task(connect_and_keep_alive())
