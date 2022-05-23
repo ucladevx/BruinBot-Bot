@@ -9,7 +9,7 @@ state = "off"
 
 def control(msg):
     global state
-	state = msg
+    state = msg
 
 async def loop():
     while True:
